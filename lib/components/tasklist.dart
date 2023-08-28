@@ -15,21 +15,22 @@ class TaskList extends StatelessWidget {
   Widget build(BuildContext context) {
     // List task = Provider.of<Task_Data>(context).task;
     return Consumer<Task_Data>(builder: (context, tasksdata, child) {
+      //Passing data to contructor ListTile using Consumer
       return ListView.builder(
           itemCount: tasksdata.taskCount(),
           itemBuilder: (context, index) {
             return TaskTile(
-                //Constructor
-                str: tasksdata.task[index].name,
-                isChecked: tasksdata.task[index].isDone,
-                ischeck: (checkboxState) {
-                  // setState(() {
-                  //   task[index].toggleDone();
-                  //   //_getResultFromNextScreen(context);
-
-                  //   //setState inside a Stateful Widget a callback function
-                  // });
-                });
+              //Constructor
+              str: tasksdata.tasks[index].name,
+              isChecked: tasksdata.tasks[index].isDone,
+              ischeck: (checkboxState) {
+                tasksdata.toggle(tasksdata.tasks[index]);
+              },
+              del: () {
+                Provider.of<Task_Data>(context, listen: false)
+                    .dele(tasksdata.tasks.indexOf(tasksdata.tasks[index]));
+              },
+            );
           });
     });
   }

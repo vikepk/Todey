@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:todey/components/task_tile.dart';
+
 import 'package:provider/provider.dart';
 import '../data/task_data.dart';
 import 'package:todey/screens/add_task.dart';
 
 import '../components/tasklist.dart';
-import '../data/task.dart';
 
 //late String value;
 class TasksScreen extends StatefulWidget {
@@ -22,27 +21,19 @@ class _TasksScreenState extends State<TasksScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List task = Provider.of<Task_Data>(context).task;
+    List task = Provider.of<Task_Data>(context).tasks;
+    //Using Provider getting task data
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () async {
           try {
             showModalBottomSheet(
-                context: context,
-                builder: (context) => AddTask(
-                      add: (value) {
-                        setState(() {
-                          print(value);
-                          task.add(Task(name: value.toString()));
-                        });
-                      },
-                    ));
+                context: context, builder: (context) => AddTask());
+            //BottomSheet
           } catch (e) {
             print("Hello,$e");
           }
-
-          //print(value);
         },
       ),
       backgroundColor: Colors.lightBlueAccent,
@@ -86,9 +77,9 @@ class _TasksScreenState extends State<TasksScreen> {
                       topLeft: Radius.circular(50),
                       topRight: Radius.circular(50))),
               child: Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: TaskList(),
-              ),
+                  padding: const EdgeInsets.only(top: 20), child: TaskList()
+                  //Task List ,
+                  ),
             ),
           )
         ],

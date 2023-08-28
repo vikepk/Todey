@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todey/data/task_data.dart';
 import '../data/task.dart';
 import 'package:todey/components/tasklist.dart';
+import 'package:provider/provider.dart';
 
 class AddTask extends StatelessWidget {
-  Function add;
-  AddTask({required this.add});
-
   TextEditingController task = new TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,9 @@ class AddTask extends StatelessWidget {
               // Expanded(child: MaterialButton(height:50,color:Colors.blueAccent,onPressed: (){},child: Text("Add",style: TextStyle(fontSize: 25,color: Colors.white),),shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20)),)),
               TextButton(
                   onPressed: () {
-                    add(task.text);
+                    Provider.of<Task_Data>(context, listen: false)
+                        .add(task.text);
+                    //Adding task to the list
                     Navigator.pop(context);
                   },
                   child: Text(
