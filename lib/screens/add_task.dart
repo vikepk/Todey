@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todey/data/task_data.dart';
-import '../data/task.dart';
-import 'package:todey/components/tasklist.dart';
+
 import 'package:provider/provider.dart';
 
 class AddTask extends StatelessWidget {

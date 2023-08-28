@@ -21,7 +21,6 @@ class _TasksScreenState extends State<TasksScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List task = Provider.of<Task_Data>(context).tasks;
     //Using Provider getting task data
     return Scaffold(
       floatingActionButton: FloatingActionButton(
