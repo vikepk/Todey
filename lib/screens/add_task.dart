@@ -4,7 +4,7 @@ import 'package:todey/data/task_data.dart';
 import 'package:provider/provider.dart';
 
 class AddTask extends StatelessWidget {
-  TextEditingController task = new TextEditingController();
+  final TextEditingController task = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(

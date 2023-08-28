@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todey/components/task_tile.dart';
-import 'package:todey/screens/add_task.dart';
-import "package:async/async.dart";
+
 import 'package:provider/provider.dart';
 import '../data/task_data.dart';
-
-import '../data/task.dart';
-import "dart:developer";
-
-import '../screens/taskscreen.dart';
 
 class TaskList extends StatelessWidget {
   @override

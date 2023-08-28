@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:todey/components/task_tile.dart';
-import 'package:provider/provider.dart';
-import 'package:todey/data/task_data.dart';
 
 class TaskTile extends StatelessWidget {
-  late String str;
-  late bool isChecked;
-  Function ischeck;
-  Function del;
+  final String str;
+  final bool isChecked;
+  final Function ischeck;
+  final Function del;
 
   TaskTile(
       {required this.str,
